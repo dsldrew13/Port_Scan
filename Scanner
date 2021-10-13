@@ -3,7 +3,8 @@ import socket
 import threading
 from queue import Queue
 
-target = "192.168.1.90"
+
+target = "192.168.1.120"
 queue = Queue()
 open_ports = []
 
@@ -15,11 +16,9 @@ def portscan(port):
     except:
         return False
 
-
 def fill_queue(port_list):
     for port in port_list:
         queue.put(port)
-
 
 def worker():
     while not queue.empty():
